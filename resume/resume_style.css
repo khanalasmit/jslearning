@@ -1,0 +1,151 @@
+body {
+    background-color: rgba(229, 199, 90, 0);
+    margin-top: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.top-div {
+    background-color: white;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.name-p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+}
+
+.Designation {
+    font-family: Arial, sans-serif;
+    color: rgb(147, 147, 35);
+    margin-top: 5px;
+}
+
+.summary-dcr {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+button {
+    font-family: Arial, sans-serif;
+    background-color: rgb(223, 122, 21);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgb(200, 100, 10);
+}
+
+.section {
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.section h2 {
+    color: rgb(0, 100, 200);
+    border-bottom: 3px solid rgb(0, 174, 255);
+    padding-bottom: 10px;
+}
+
+.section h3 {
+    color: rgb(50, 50, 50);
+    margin-top: 20px;
+}
+
+.section ul {
+    line-height: 1.8;
+}
+
+.section li {
+    margin: 8px 0;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 30px;
+    background-color: rgb(250, 250, 250);
+    /* border-left: 4px solid rgb(223, 122, 21); Removed to match clean card style of the reference, or we can keep it? Reference doesn't seem to have it on the side. Let's keep it clean. */
+    border-radius: 12px;
+}
+
+.project:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.project-text {
+    flex: 1;
+}
+
+.project-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+/* Specific adjustments for text styling within project to match visual hierarchy */
+.project h3 {
+    margin-top: 0;
+    font-size: 28px;
+    font-family: 'Times New Roman', serif;
+    /* Matching the serif font header in the example */
+    margin-bottom: 10px;
+}
+
+/* Style the View Project button */
+.view-project-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 24px;
+    border: 1px solid #333;
+    border-radius: 50px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.view-project-btn:hover {
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+}
+
+a {
+    color: rgb(0, 100, 200);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
