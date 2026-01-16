@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Quiz Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f7f7fa;
+      color: #222;
+    }
+    h2 {
+      text-align: center;
+      color: #4a90e2;
+      margin-bottom: 25px;
+    }
+    #quiz-container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 24px 18px 18px 18px;
+    }
+    .question {
+      font-weight: bold;
+      margin-bottom: 16px;
+      font-size: 18px;
+      color: #333;
+    }
+    .option {
+      display: block;
+      width: 100%;
+      background: #eaf1fb;
+      border: 1px solid #bcdffb;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 7px 0;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .option:hover:not(:disabled) {
+      background: #d0e6fa;
+    }
+    .option:disabled {
+      background: #f0f0f0;
+      color: #aaa;
+      cursor: not-allowed;
+    }
+    #nextBtn {
+      margin-top: 15px;
+      padding: 8px 18px;
+      background: #4a90e2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #nextBtn:hover {
+      background: #357abd;
+    }
+    #score {
+      margin-top: 18px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Quiz Application</h2>
+  <div id="quiz-container">
+    <div id="question" class="question"></div>
+    <div id="options"></div>
+    <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Next</button>
+    <div id="score"></div>
+  </div>
+  <script src="quiz.js"></script>
+</body>
+</html>
