@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic To-Do List</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    .done { text-decoration: line-through; color: gray; }
+    button { margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Dynamic To-Do List</h2>
+  <input id="taskInput" placeholder="New Task">
+  <button onclick="addTask()">Add</button>
+  <select id="filter" onchange="showTasks()">
+    <option value="all">All</option>
+    <option value="completed">Completed</option>
+    <option value="pending">Pending</option>
+  </select>
+  <ul id="taskList"></ul>
+  <div id="count"></div>
+  <script src="todo.js"></script>
+</body>
+</html>

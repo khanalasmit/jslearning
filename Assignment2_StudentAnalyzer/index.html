@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Marks & Grade Analyzer</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    table { border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #888; padding: 8px; text-align: center; }
+    .fail { background: red; color: white; }
+    .pass { background: lightgreen; }
+  </style>
+</head>
+<body>
+  <h2>Student Marks & Grade Analyzer</h2>
+  <input id="name" placeholder="Student Name">
+  <input id="math" type="number" placeholder="Math Marks">
+  <input id="science" type="number" placeholder="Science Marks">
+  <input id="english" type="number" placeholder="English Marks">
+  <button onclick="addStudent()">Add Student</button>
+  <table id="resultTable">
+    <tr>
+      <th>Name</th><th>Math</th><th>Science</th><th>English</th>
+      <th>Total</th><th>Percentage</th><th>Grade</th>
+    </tr>
+  </table>
+  <script src="student.js"></script>
+</body>
+</html>
