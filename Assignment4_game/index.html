@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Number Guessing Game</h1>
+    <div class="scores" style="margin-top: 15px; font-weight: bold;">
+        <span style="margin-right: 20px;">Side A Score: <span id="scoreA">0</span></span>
+        <span>Side B Score: <span id="scoreB">0</span></span>
+    </div>
+    <div class="input-box">
+        <input type="number" id="guess" placeholder="Enter your guess">
+        <button id="check-btn" onclick="checkGuess()">Check</button>
+    </div>
+    
+    <p id="message"></p>
+    <p id="side"></p>
+    <p id="winner"></p>
+    <script src="guess.js"></script>
+</body>
+
+</html>
