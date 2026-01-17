@@ -19,6 +19,11 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 2em;
+/*
+The 'em' unit in CSS is a relative unit of measurement. It is based on the font-size of the element. 
+1em equals the current font size of the element. For example, if the font-size of the element is 16px, then 1em is 16px.
+It is commonly used for scalable and accessible designs, as it allows elements to resize proportionally to their parent font size.
+*/
 }
 nav ul li {
     margin: 0;

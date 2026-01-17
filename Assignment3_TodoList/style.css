@@ -1,0 +1,133 @@
+:root {
+    --primary-color: #6c5ce7;
+    --primary-hover: #5b4cc4;
+    --bg-color: #dfe6e9;
+    --card-bg: #ffffff;
+    --text-color: #2d3436;
+    --border-color: #b2bec3;
+    --danger-color: #d63031;
+    --success-color: #00b894;
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    width: 400px;
+    max-width: 90%;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#taskInput:focus {
+    border-color: var(--primary-color);
+}
+
+button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #f1f2f6;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #e2e6ea;
+}
+
+li.done span {
+    text-decoration: line-through;
+    color: #b2bec3;
+}
+
+li button {
+    background-color: transparent;
+    color: var(--danger-color);
+    padding: 5px 10px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+li button:hover {
+    background-color: rgba(214, 48, 49, 0.1);
+}
+
+.stats {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #636e72;
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+}

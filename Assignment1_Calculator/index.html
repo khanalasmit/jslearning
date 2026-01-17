@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Smart Calculator with History</title>
-  <style>
-    body { font-family: Arial; margin: 30px; }
-    #history { margin-top: 20px; }
-    ul { padding-left: 20px; }
-    .error { color: red; }
-  </style>
+  <title>Smart 3D Calculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h2>Smart Calculator</h2>
-  <input id="num1" type="number" placeholder="First number">
-  <select id="operator">
-    <option value="+">+</option>
-    <option value="-">-</option>
-    <option value="*">*</option>
-    <option value="/">/</option>
-  </select>
-  <input id="num2" type="number" placeholder="Second number">
-  <button onclick="calculate()">Calculate</button>
-  <button onclick="clearHistory()">Clear History</button>
-  <div id="result"></div>
-  <ul id="history"></ul>
+  
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    
+    <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="operator" onclick="appendOperator('/')">/</button>
+      <button class="operator" onclick="appendOperator('*')">*</button>
+      <button class="operator" onclick="deleteLast()">DEL</button>
+      
+      <button onclick="appendNumber('7')">7</button>
+      <button onclick="appendNumber('8')">8</button>
+      <button onclick="appendNumber('9')">9</button>
+      <button class="operator" onclick="appendOperator('-')">-</button>
+      
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button class="operator" onclick="appendOperator('+')">+</button>
+      
+      <button onclick="appendNumber('1')">1</button>
+      <button onclick="appendNumber('2')">2</button>
+      <button onclick="appendNumber('3')">3</button>
+      <button class="equal" onclick="calculate()">=</button>
+      
+      <button onclick="appendNumber('0')" style="grid-column: span 2;">0</button>
+      <button onclick="appendNumber('.')">.</button>
+    </div>
+  </div>
+
+  <div class="history-container">
+    <button class="clear-hist-btn" onclick="clearHistory()">Clear History</button>
+    <ul id="history"></ul>
+  </div>
+
   <script src="calculator.js"></script>
 </body>
 </html>

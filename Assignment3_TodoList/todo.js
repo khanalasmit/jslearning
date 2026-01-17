@@ -1,48 +1,87 @@
 let tasks = [];
 
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  // Optional: Load from local storage here if needed
+  showTasks();
+});
+
 function addTask() {
-  let taskText = document.getElementById('taskInput').value;
+  let taskInput = document.getElementById('taskInput');
+  let taskText = taskInput.value;
+
   if (taskText.trim() === "") return;
-  tasks.push({ text: taskText, done: false });
-  document.getElementById('taskInput').value = "";
+
+  tasks.push({
+    id: Date.now(), // Unique ID, though index is used for simplicity in some places, ID is better for robustness
+    text: taskText,
+    done: false
+  });
+
+  taskInput.value = "";
+  taskInput.focus();
   showTasks();
 }
 
-function toggleTask(index) {
-  tasks[index].done = !tasks[index].done;
-  showTasks();
+function toggleTask(id) {
+  // Find task by ID to be safe against filtering index shifts
+  const task = tasks.find(t => t.id === id);
+  if (task) {
+    task.done = !task.done;
+    showTasks();
+  }
 }
 
-function deleteTask(index) {
-  tasks.splice(index, 1);
+function deleteTask(id) {
+  tasks = tasks.filter(t => t.id !== id);
   showTasks();
 }
 
 function showTasks() {
   let filter = document.getElementById('filter').value;
   let list = document.getElementById('taskList');
+  let countDiv = document.getElementById('count');
+
   list.innerHTML = "";
-  let completedCount = 0;
 
-  tasks.forEach((task, i) => {
-    if (filter === "completed" && !task.done) return;
-    if (filter === "pending" && task.done) return;
+  // 1. Logic Fix: Calculate stats based on ALL tasks first
+  let totalTasks = tasks.length;
+  let completedCount = tasks.filter(t => t.done).length;
+  let pendingCount = totalTasks - completedCount;
 
+  // 2. Filter for display
+  let displayTasks = tasks.filter(task => {
+    if (filter === "completed") return task.done;
+    if (filter === "pending") return !task.done;
+    return true;
+  });
+
+  // 3. Render
+  displayTasks.forEach((task) => {
     let li = document.createElement('li');
-    li.innerText = task.text;
-    if (task.done) {
-      li.className = "done";
-      completedCount++;
-    }
-    li.onclick = () => toggleTask(i);
+    if (task.done) li.classList.add('done');
+
+    // Use span for text so we can strike it through independently if needed, 
+    // or just style the whole li as before.
+    let span = document.createElement('span');
+    span.innerText = task.text;
+    li.appendChild(span);
+
+    // Toggle on click of the row
+    li.onclick = () => toggleTask(task.id);
 
     let delBtn = document.createElement('button');
     delBtn.innerText = "Delete";
-    delBtn.onclick = (e) => { e.stopPropagation(); deleteTask(i); };
-    li.appendChild(delBtn);
+    // Stop propagation so clicking delete doesn't toggle 'done' status
+    delBtn.onclick = (e) => {
+      e.stopPropagation();
+      deleteTask(task.id);
+    };
 
+    li.appendChild(delBtn);
     list.appendChild(li);
   });
 
-  document.getElementById('count').innerText = "Completed: " + completedCount;
+  // 4. Update Stats Message (Independent of filter)
+  countDiv.innerText = `${completedCount} completed / ${totalTasks} total`;
 }

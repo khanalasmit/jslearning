@@ -1,0 +1,122 @@
+:root {
+  --bg-color: #e0e5ec;
+  --calc-body: #e0e5ec;
+  --txt-color: #4a4a4a;
+  --shadow-light: #ffffff;
+  --shadow-dark: #a3b1c6;
+  --primary-color: #4d7cff;
+  --danger-color: #ff5e5e;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--txt-color);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: var(--txt-color);
+  text-shadow: 1px 1px 1px var(--shadow-light);
+}
+
+.calculator {
+  background-color: var(--calc-body);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 9px 9px 16px var(--shadow-dark),
+              -9px -9px 16px var(--shadow-light);
+  width: 320px;
+}
+
+#display {
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  background: var(--calc-body);
+  box-shadow: inset 6px 6px 10px var(--shadow-dark),
+              inset -6px -6px 10px var(--shadow-light);
+  font-size: 24px;
+  text-align: right;
+  padding: 15px;
+  box-sizing: border-box;
+  color: var(--txt-color);
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background: var(--calc-body);
+  box-shadow: 6px 6px 10px var(--shadow-dark),
+              -6px -6px 10px var(--shadow-light);
+  font-size: 18px;
+  color: var(--txt-color);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+button:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+              inset -4px -4px 8px var(--shadow-light);
+  transform: translateY(2px);
+}
+
+.operator {
+  color: var(--primary-color);
+}
+
+.equal {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.equal:active {
+  background-color: var(--primary-color);
+}
+
+.clear {
+  color: var(--danger-color);
+}
+
+.history-container {
+  margin-top: 30px;
+  width: 320px;
+}
+
+#history {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+#history li {
+  padding: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.clear-hist-btn {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 14px;
+  color: var(--danger-color);
+}
