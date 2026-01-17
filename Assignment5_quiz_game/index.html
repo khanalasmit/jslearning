@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="quiz-container">
+        <h1>Quiz Time!</h1>
+        <div id="quiz-block">
+            <div class="question-box" id="question-text">
+                Loading Question...
+            </div>
+
+            <div class="options-container" id="options-container">
+                <!-- Options injected by JS -->
+            </div>
+
+            <div class="controls">
+                <span id="progress-text" style="float: left; margin-top: 10px; font-size: 0.9rem; color:#666">Question
+                    1/5</span>
+                <button id="next-btn" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Overlay -->
+    <div id="result-overlay">
+        <h1>Quiz Completed!</h1>
+        <div class="score-text">Score: <span id="final-score">0</span></div>
+        <button id="restart-btn" onclick="restartQuiz()">Play Again</button>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+
+</html>
