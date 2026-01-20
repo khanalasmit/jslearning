@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Digital Clock.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+    <h1>CURRENT TIME</h1>
+    <div class="time_out"><span class="time" id="hour"></span><span class="time2">:</span><span class="time" id="min"></span><span class="time2">:</span><span class="time" id="sec"></span></div>
+    <div class="timer-heading">TIMER</div>
+    <div class="stopwatch-container">
+        <form id="timerForm" style="margin-bottom:1em;display:flex;gap:0.5em;align-items:center;">
+            <input type="number" id="inputHours" min="0" max="99" placeholder="HH" style="width:3em;" required>
+            <span>:</span>
+            <input type="number" id="inputMinutes" min="0" max="59" placeholder="MM" style="width:3em;" required>
+            <span>:</span>
+            <input type="number" id="inputSeconds" min="0" max="59" placeholder="SS" style="width:3em;" required>
+            <button type="submit">Set</button>
+        </form>
+        <span class="stopwatch-time" id="stopwatch">00:00:00</span>
+        <div class="stopwatch-controls">
+            <button id="startBtn">Start</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+    </div>
+    <script src="clock.js"></script>
+    </div>
+</body>
+</html>
