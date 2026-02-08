@@ -1,0 +1,70 @@
+<!-- Problem Statement
+Create a webpage where:
+● User selects theme colors
+● Background, text, and button colors change
+● Selected theme is stored in an object
+● Reset option restores default theme -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Color & Theme Manager</h1>
+        <p class="subtitle">Customize your theme by selecting colors below</p>
+
+        <div class="theme-controls">
+            <div class="control-group">
+                <label for="bgColor">
+                    <span class="icon">🖼️</span>
+                    Background Color
+                </label>
+                <input type="color" id="bgColor" value="#667eea" onchange="updateTheme()">
+            </div>
+
+            <div class="control-group">
+                <label for="textColor">
+                    <span class="icon">📝</span>
+                    Text Color
+                </label>
+                <input type="color" id="textColor" value="#ffffff" onchange="updateTheme()">
+            </div>
+
+            <div class="control-group">
+                <label for="buttonBgColor">
+                    <span class="icon">🔘</span>
+                    Button Background
+                </label>
+                <input type="color" id="buttonBgColor" value="#764ba2" onchange="updateTheme()">
+            </div>
+
+            <div class="control-group">
+                <label for="buttonTextColor">
+                    <span class="icon">⚪</span>
+                    Button Text
+                </label>
+                <input type="color" id="buttonTextColor" value="#ffffff" onchange="updateTheme()">
+            </div>
+        </div>
+
+
+        <div class="demo-section">
+            <h2>Theme Preview</h2>
+            <p>This is how your text will look with the selected theme.</p>
+            <button class="demo-button">Sample Button</button>
+        </div>
+
+        <div class="action-buttons">
+            <button onclick="resetTheme()" class="reset-btn">Reset to Default</button>
+            <button onclick="saveTheme()" class="save-btn">Save Theme</button>
+        </div>
+    </div>
+    
+    <script src="theme.js"></script>
+</body>
+</html>

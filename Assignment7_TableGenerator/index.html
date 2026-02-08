@@ -1,0 +1,38 @@
+<!-- Problem Statement
+Design a program that:
+● Takes number of rows and columns as input
+● Generates a table dynamically
+
+● Adds buttons to:
+○ Add row
+○ Delete row
+○ Highlight even rows -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Table Generator</h1>
+    <div id="inputs">
+        <input id="row" type="number" placeholder="No of rows" >
+        <input id="column" type="number" placeholder="No of columns" >
+        <button id="table_button" onclick="table_generator()">Submit</button>
+    </div>
+    
+    <div id="controls" style="display: none; margin: 20px 0;">
+        <button onclick="addRow()">Add Row</button>
+        <button onclick="deleteRow()">Delete Row</button>
+        <button onclick="highlightEvenRows()">Highlight Even Rows</button>
+    </div>
+    
+    <div id="table_heads"></div>
+    <div id="table_body"></div>
+    
+    <script src="table.js"></script>
+</body>
+</html>
