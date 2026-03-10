@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 import os
 from pathlib import Path
-
+from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR= Path(__file__).resolve().parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -76,10 +76,16 @@ WSGI_APPLICATION = 'new_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+load_dotenv()
+#using the postgresql database here
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test',
+        'USER': 'postgres',
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
     }
 }
 
@@ -120,5 +126,5 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
-MEDIA_URL='/media'
+MEDIA_URL='media/'
 MEDIA_ROO = os.path.join(BASE_DIR,'media')

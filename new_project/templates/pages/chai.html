@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>This is the chai learning page.</p>
-</body>
-</html>
+{% extends "../base.html" %}
+
+{% block title %}Chai page{% endblock title %}
+
+{% block content %}
+<h1>This is the Chai page.</h1>
+<p>This is the all chai you need</p>
+{% for chai in chais %}
+<div class="chai-item">
+    <img src="{{chai.image.url}}" alt="">
+    <p>{{chai.name}}</p>
+    <a href="{% url 'specific_chai' chai.id %}">
+        <button>
+            {{chai.type}}-{{chai.id}}
+        </button>
+    </a>
+    <p>{{chai.description}}</p>
+</div>
+{% endfor %}
+{% endblock content %}

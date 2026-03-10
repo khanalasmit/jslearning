@@ -1,0 +1,36 @@
+{% extends "../base.html" %}
+
+{% block title %}
+Test title for forms{% endblock title %}
+
+{% block content %}
+<section class="form-page">
+<div class="form-card">
+	<h1 class="form-title">Add Chai Store</h1>
+	<p class="form-subtitle">Create a store and select chai varieties.</p>
+	<form action="{% url 'chai_stores' %}" method="post" class="store-form">
+	{% csrf_token %}
+	{{ form.as_table }}
+	<button type="submit" class="submit-btn">Add store</button>
+	</form>
+</div>
+
+<div class="form-card" style="margin-top: 24px;">
+	<h2 class="form-title">All Stores</h2>
+	{% for store in stores %}
+	<details class="store-item">
+		<summary class="store-name">{{ store.name }}</summary>
+		<ul class="chai-list">
+		{% for chai in store.chai_varieties.all %}
+			<li>{{ chai.name }} — {{ chai.get_type_display }}</li>
+		{% empty %}
+			<li>No chai varieties yet.</li>
+		{% endfor %}
+		</ul>
+	</details>
+	{% empty %}
+	<p>No stores added yet.</p>
+	{% endfor %}
+</div>
+</section>
+{% endblock content %}
