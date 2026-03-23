@@ -28,3 +28,7 @@ def chai_store(request):
 
     stores = Store.objects.prefetch_related('chai_varieties').all()
     return render(request,'pages/chai_stores.html', {'form':form, 'stores':stores})
+
+def updating_chaistore(request,id):
+    if request.method == "PATCH":
+       pass

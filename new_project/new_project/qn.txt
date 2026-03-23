@@ -1,0 +1,9 @@
+write Django application to illustrate the following concepts:
+
+
+Handling Requests & ResponsesForm Data Handling 
+& SessionsRouting, Middleware, Templating Concepts
+Database Integration: Relational vs NoSQL, 
+CRUD Operations, ORM ConceptAuthentication &
+ Authorization: Cookies, SessionsMiddleware for 
+ Logging, Error Handling, and Security     

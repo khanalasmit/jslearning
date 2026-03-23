@@ -1,4 +1,5 @@
 {% extends "../base.html" %}
+{% load static %}
 
 {% block title %}
 Test title for forms{% endblock title %}
@@ -19,7 +20,7 @@ Test title for forms{% endblock title %}
 	<h2 class="form-title">All Stores</h2>
 	{% for store in stores %}
 	<details class="store-item">
-		<summary class="store-name">{{ store.name }}</summary>
+		<summary class="store-name"><span id="store-name">{{ store.name }}</span><span><button class = "submit-btn">Edit</button></span></summary>
 		<ul class="chai-list">
 		{% for chai in store.chai_varieties.all %}
 			<li>{{ chai.name }} — {{ chai.get_type_display }}</li>
@@ -33,4 +34,5 @@ Test title for forms{% endblock title %}
 	{% endfor %}
 </div>
 </section>
+<script src= "{% static 'chai_stores.js' %}" ></script>
 {% endblock content %}
