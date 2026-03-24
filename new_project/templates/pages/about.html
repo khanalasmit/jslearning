@@ -3,5 +3,49 @@
 {% block title %}About page{% endblock title %}
 
 {% block content %}
-<h1>This is the About page</h1>
+<section class="form-page" style="flex-direction: column; align-items: center; gap: 24px;">
+
+    <!-- Project Overview Card -->
+    <div class="form-card">
+        <h1 class="form-title" style="margin-bottom: 4px;">About the Architecture</h1>
+        <p class="form-subtitle">An overview of the design patterns, CRUD lifecycle, and Django concepts implemented.</p>
+    </div>
+
+    <!-- CRUD Operations -->
+    <div class="form-card">
+        <h2 class="form-title">CRUD Operations</h2>
+        <p class="form-subtitle" style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px;">How data flows through the application</p>
+        <ul style="line-height: 1.8; padding-left: 20px; font-size: 1.05em;">
+            <li><strong>Create:</strong> Store creation is handled by the <code>chai_store</code> view, which processes <code>POST</code> payloads submitted from the store addition form at <code>/chai_stores/</code>.</li>
+            <li><strong>Read:</strong> Database records are queried and passed to templates via views like <code>all_chai</code> (listing chais), <code>definite_chai</code> (chai detail), and <code>chai_store</code> (which uses <code>prefetch_related</code> to list stores and their nested chai varieties efficiently).</li>
+            <li><strong>Update:</strong> In-place updates are made via the asynchronous <code>updating_chaistore</code> view, receiving <code>PATCH</code> JSON requests from JavaScript to dynamically rename store entries on blur/enter.</li>
+            <li><strong>Delete:</strong> Asynchronous record destruction is handled by the <code>deleting_chaistore</code> view, which executes database <code>.delete()</code> operations via <code>DELETE</code> requests when a store name is left blank.</li>
+        </ul>
+    </div>
+
+    <!-- Templating Concepts -->
+    <div class="form-card">
+        <h2 class="form-title">Django Templating</h2>
+        <p class="form-subtitle" style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px;">Key template tags used to build the user interface</p>
+        <ul style="line-height: 1.8; padding-left: 20px; font-size: 1.05em;">
+            <li><code>{% verbatim %}{% extends %}{% endverbatim %}</code> &amp; <code>{% verbatim %}{% block %}{% endverbatim %}</code>: Enforces template inheritance and the DRY (Don't Repeat Yourself) principle, utilizing a common layout from <code>base.html</code>.</li>
+            <li><code>{% verbatim %}{% for store in stores %}{% endverbatim %}</code>: Iterates through Model QuerySets, powering our nested loops and table lists dynamically.</li>
+            <li><code>{% verbatim %}{{ variable }}{% endverbatim %}</code>: Injects Python variable data directly into the DOM context (e.g., embedding the <code>store.id</code> into HTML data-attributes).</li>
+            <li><code>{% verbatim %}{% csrf_token %}{% endverbatim %}</code>: A vital security tag injected into HTML forms to generate a hidden token protecting against forgery attacks.</li>
+        </ul>
+    </div>
+
+    <!-- Middleware Concepts -->
+    <div class="form-card">
+        <h2 class="form-title">Middleware Layers</h2>
+        <p class="form-subtitle" style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px;">The fundamental request/response processing hooks</p>
+        <ul style="line-height: 1.8; padding-left: 20px; font-size: 1.05em;">
+            <li><strong>CsrfViewMiddleware:</strong> Acts as a shield against Cross-Site Request Forgery. It enforces security by validating either the hidden form token or the <code>X-CSRFToken</code> HTTP header we appended to our JavaScript <code>fetch</code> requests.</li>
+            <li><strong>SessionMiddleware &amp; AuthenticationMiddleware:</strong> Standard Django stack middlewares that attach session attributes and the authenticated <code>request.user</code> to each incoming HTTP request payload.</li>
+            <li><strong>CommonMiddleware:</strong> Automatically provides conveniences like resolving missing trailing slashes (which prevents URL mismatch bugs with our Javascript API endpoints).</li>
+            <li><strong>BuiltMiddleware</strong>Calculates the time required for laoding the page which is included in the middleware.py of the main project folder.</li>
+        </ul>
+    </div>
+
+</section>
 {% endblock content %}

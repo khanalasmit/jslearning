@@ -3,18 +3,23 @@
 {% block title %}Chai page{% endblock title %}
 
 {% block content %}
-<h1>This is the Chai page.</h1>
-<p>This is the all chai you need</p>
-{% for chai in chais %}
-<div class="chai-item">
-    <img src="{{chai.image.url}}" alt="">
-    <p>{{chai.name}}</p>
-    <a href="{% url 'specific_chai' chai.id %}">
-        <button>
-            {{chai.type}}-{{chai.id}}
-        </button>
-    </a>
-    <p>{{chai.description}}</p>
+<div class="container text-center mt-4 mb-5">
+    <div class="row justify-content-center">
+        {% for chai in chais %}
+        <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+            <div class="chai-item">
+                <div class="card" style="width: 24rem;">
+                    <img src="{{ chai.image.url }}" class="card-img-top" alt="{{ chai.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ chai.name }}</h5>
+                        <a href="{% url 'specific_chai' chai.id %}">
+                            <button type="button" class="btn btn-primary">{{chai.type}}-{{chai.id}}</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
-{% endfor %}
 {% endblock content %}
